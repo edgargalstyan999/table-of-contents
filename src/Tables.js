@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { UserContext } from './UserContext';
+import { UserContext } from './Provider';
+
 export const Tables = () => {
-  const users = useContext(UserContext);
+  const [userdata, setUser] = useContext(UserContext);
+
   return (
     <table>
       <tr>
@@ -13,17 +15,18 @@ export const Tables = () => {
         <th>Owner</th>
         <th>Action</th>
       </tr>
-      {users.map((user) => (
-        <tr>
-          <th>{user.id}</th>
-          <th>{user.name}</th>
-          <th>{user.created}</th>
-          <th>{user.owner}</th>
-          <th>
-            <Link to={'/accounts/' + user.id}> View </Link>
-          </th>
-        </tr>
-      ))}
+      {userdata &&
+        userdata.map((user) => (
+          <tr>
+            <th>{user.id}</th>
+            <th>{user.name}</th>
+            <th>{user.created}</th>
+            <th>{user.owner}</th>
+            <th>
+              <Link to={'/accounts/' + user.id}> View </Link>
+            </th>
+          </tr>
+        ))}
     </table>
   );
 };

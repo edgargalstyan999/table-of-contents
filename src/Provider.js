@@ -1,35 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { createContext } from 'react';
-const usersrequest = [
-  {
-    id: 1,
-    name: 'Account 1',
-    created: '5-8-2021',
-    updated: '5-8-2021',
-    owner: 'User 1',
-    action: 'Action',
-  },
-  {
-    id: 2,
-    name: 'Account 2',
-    created: '5-8-2021',
-    updated: '5-8-2021',
-    owner: 'User 2',
-    action: 'Action',
-  },
-  {
-    id: 3,
-    name: 'Account 3',
-    created: '5-8-2021',
-    updated: '5-8-2021',
-    owner: 'User 3',
-    action: 'Action',
-  },
-];
+import React, { useEffect, useState, createContext } from 'react';
+import axios from 'axios';
+
 export const UserContext = createContext(null);
 export const Provider = (props) => {
-  const [userdata, setUser] = useState(usersrequest);
-
+  const [userdata, setUser] = useState(null);
+  const fetchData = () => {
+    return axios
+      .get('http://localhost:8080/users')
+      .then((response) => setUser(response.data));
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <UserContext.Provider value={[userdata, setUser]}>
       {props.children}

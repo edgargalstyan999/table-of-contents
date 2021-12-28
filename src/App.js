@@ -12,9 +12,9 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Tables />} />
-          <Route path='/accounts/:id' element={<User />} />
+          <Route path='/users/:id' element={<User />} />
         </Routes>
-      </Router>
+      </Router> 
     </Provider>
   );
 }

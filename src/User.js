@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserContext } from './Provider';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export const User = () => {
-  const [userdata] = useContext(UserContext);
-  const [data, setUser] = useState();
+  const [data, setUser] = useState(null);
   let routeParams = useParams();
-  routeParams = Number(routeParams.id);
+      routeParams = Number(routeParams.id);
+  const fetchData = () => {
+    return axios
+      .get('http://localhost:8080/users/' + routeParams)
+      .then((response) => setUser(response.data));
+  };
 
   useEffect(() => {
-    let user;
-    user = userdata.find((item) => item.id === routeParams);
-    setUser(user);
+    fetchData();
   }, []);
 
   return (

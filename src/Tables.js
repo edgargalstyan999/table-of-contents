@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from './Provider';
@@ -23,7 +22,7 @@ export const Tables = () => {
             <th>{user.created}</th>
             <th>{user.owner}</th>
             <th>
-              <Link to={'/accounts/' + user.id}> View </Link>
+              <Link to={'/users/' + user.id}> View </Link>
             </th>
           </tr>
         ))}

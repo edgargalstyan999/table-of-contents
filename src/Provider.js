@@ -6,15 +6,15 @@ export const Provider = (props) => {
        const [user, setUser] = useState(null);
   
   const fetchData = () => {
-    return axios
+    axios
       .get(process.env.REACT_APP_URL + '/users')
       .then((response) => setUser(response.data));
   };
-
+ 
   useEffect(() => {
     fetchData();
   }, []);
-  
+
   return (
     <UserContext.Provider value={[user, setUser]}>
       {props.children}

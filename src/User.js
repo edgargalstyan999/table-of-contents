@@ -19,7 +19,7 @@ export const User = () => {
 
   return (
     <table>
-      <tr>
+      <tr> 
         <th>ID</th>
         <th>Name</th>
         <th>Owner</th>

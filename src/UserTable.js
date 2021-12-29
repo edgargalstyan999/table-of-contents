@@ -4,7 +4,6 @@ import { UserContext } from './Provider';
 
 export const UserTable = () => {
   const [userdata, setUser] = useContext(UserContext);
-
   return (
     <table>
       <tr>

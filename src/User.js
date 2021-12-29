@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 export const User = () => {
   const [data, setUser] = useState(null);
   const { id } = useParams();
   const routeParams = Number(id);
+
   const fetchData = () => {
-    return axios
+    axios
       .get(process.env.REACT_APP_URL + '/users/' + routeParams)
       .then((response) => setUser(response.data));
   };

@@ -6,7 +6,6 @@ import { User } from './User';
 import './index.css';
 
 function App() {
-  
   return (
     <Provider  >
       <Router>

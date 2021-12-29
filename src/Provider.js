@@ -10,13 +10,13 @@ export const Provider = (props) => {
       .get(process.env.REACT_APP_URL + '/users')
       .then((response) => setUser(response.data));
   };
- 
+  
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
-    <UserContext.Provider value={[user, setUser]}>
+    <UserContext.Provider value={user}>
       {props.children}
     </UserContext.Provider>
   );

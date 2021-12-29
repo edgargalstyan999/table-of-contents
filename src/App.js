@@ -4,7 +4,7 @@ import { Provider } from './Provider';
 import { UserTable } from './UserTable';
 import { User } from './User';
 import './index.css';
- 
+
 function App() {
   return (
     <Provider  >

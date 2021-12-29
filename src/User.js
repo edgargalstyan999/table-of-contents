@@ -16,7 +16,7 @@ export const User = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+ 
   return (
     <table>
       <tr> 

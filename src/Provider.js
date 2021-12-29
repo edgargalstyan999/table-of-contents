@@ -1,6 +1,6 @@
 import React, { useEffect, useState, createContext } from 'react';
 import axios from 'axios';
-
+ 
 export const UserContext = createContext(null);
 export const Provider = (props) => {
        const [user, setUser] = useState(null);

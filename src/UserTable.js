@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from './Provider';
-
+ 
 export const UserTable = () => {
   const [userdata, setUser] = useContext(UserContext);
   return (

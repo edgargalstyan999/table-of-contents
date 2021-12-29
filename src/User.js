@@ -5,11 +5,11 @@ import axios from 'axios';
 
 export const User = () => {
   const [data, setUser] = useState(null);
-  let routeParams = useParams();
-      routeParams = Number(routeParams.id);
+  const { id } = useParams();
+  const routeParams = Number(id);
   const fetchData = () => {
     return axios
-      .get('http://localhost:8080/users/' + routeParams)
+      .get(process.env.REACT_APP_URL + '/users/' + routeParams)
       .then((response) => setUser(response.data));
   };
 
